@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Horizon">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="http://localhost:4000">
+  <meta property="og:description" content="">
+
+  <!-- Google Analytics -->
+
+  <!-- Favicons -->
+
+  <!-- Stylesheets -->
+  <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+
+  <title>
+    
+			Horizon
+		
+  </title>
+</head>
+
+
+<body>
+	
+	<main>
+		<article>
+			<div id="countdown-container">
+  <div id="header">
+    <div class="grid">
+      <div class="grid__item mt-1" style="text-align: center">
+        <img
+          src="/assets/images/home/logo.svg"
+          alt="Horizon | 1.24.2020 | Rimac Arena"
+          style="height: 4.5rem"
+        />
+        <noscript>
+          <div style="font-size: 3vw; font-weight: bold; margin-top: 4vw;">
+            Please enable JavaScript<br />to experience this site.
+          </div>
+        </noscript>
+      </div>
+    </div>
+  </div>
+  <div id="countdown">
+    <div>
+      <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes"
+        >00</span
+      >:<span id="seconds">00</span>
+    </div>
+  </div>
+  <div id="mountains">
+    <img src="/assets/images/home/mountains.png" />
+  </div>
+  <div id="stars"></div>
+  <div id="moon-container">
+    <div id="moon"></div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // $("#moon").fadeIn("slow");
+    //$("#moon-container").fadeTo(2000, 1);
+    //$("#countdown").fadeTo(2000, 1);
+  });
+
+  var countDownDate = new Date("Jan 24, 2020 20:00:00").getTime();
+  //var countDownDate = new Date("Nov 5, 2019 17:00:00").getTime();
+  var startDate = new Date("Nov 5, 2019 12:00:00").getTime();
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var START_POS = 40;
+  var FINAL_POS = 85;
+  var DISTANCE = FINAL_POS - START_POS;
+
+  var START_SEC = Math.floor((countDownDate - startDate) / 1000);
+
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    if (distance < 0) {
+      return;
+    }
+
+    var SEC_LEFT = Math.floor(distance / 1000);
+    // percent completed
+    var progress = 1 - SEC_LEFT / START_SEC;
+    var offset = progress * DISTANCE;
+
+    var POS = START_POS + offset;
+    // console.log(POS);
+
+    $("#moon").css("clip-path", "circle(20rem at center " + POS + "vh)");
+    $("#moon-container").fadeTo(1500, 1);
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (days.toString().length == 1) {
+      days = "0" + days;
+    }
+    if (hours.toString().length == 1) {
+      hours = "0" + hours;
+    }
+    if (minutes.toString().length == 1) {
+      minutes = "0" + minutes;
+    }
+    if (seconds.toString().length == 1) {
+      seconds = "0" + seconds;
+    }
+
+    // Display the result in the element with id="demo"
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("days").innerHTML = "00";
+      document.getElementById("hours").innerHTML = "00";
+      document.getElementById("minutes").innerHTML = "00";
+      document.getElementById("seconds").innerHTML = "00";
+      //return;
+    }
+
+    setTimeout(function() {
+      $("#countdown").fadeTo(4500, 1);
+    }, 2000);
+  }, 1000);
+</script>
+
+<script>
+  var NUM_STARS = 80;
+  var STARS_W = 100;
+  var STARS_H = 60;
+
+  for (var i = 0; i < NUM_STARS; i++) {
+    console.log("add star");
+    var star =
+      '<div class="star" style="animation: twinkle ' +
+      (Math.random() * 4 + 5) +
+      "s linear " +
+      (Math.random() * 4 + 0.5) +
+      "s infinite; top: " +
+      Math.random() * STARS_H +
+      "vh; left: " +
+      Math.random() * STARS_W +
+      'vw;"></div>';
+    $("#stars").append(star);
+  }
+</script>
+
+		</article>
+	</main>
+	
+</body>
+
+</html>
