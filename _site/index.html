@@ -13,13 +13,32 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Horizon" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="" />
+  <meta property="og:image" content="http://beyondthehorizon.ucsd.edu/assets/images/home/bg_full.png" />
   <meta property="og:url" content="http://localhost:4000" />
   <meta property="og:description" content="" />
 
   <!-- Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155541814-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-155541814-1');
+  </script>
+
 
   <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/assets/images/favicons/safari-pinned-tab.svg" color="#17213d">
+  <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#17213d">
+  <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Stylesheets -->
   <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
@@ -58,13 +77,19 @@
       <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes"
         >00</span
       >:<span id="seconds">00</span>
+
+      <div>
+        <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc3-4vuXJDaWOn6qweTfE7TH6V3RG9LlaA7raezFF_PWRKrgw/viewform?usp=sf_link">Register Now</a>
+      </div>
     </div>
+   
   </div>
-  <div id="mountains">
-    <img src="assets/images/home/mountains.png" />
+  
+  <div id="city" class="portable--hide">
+    <img src="assets/images/home/city.png" />
   </div>
   <div id="stars"></div>
-  <div id="moon-container">
+  <div id="moon-container" class="portable--hide">
     <div id="moon"></div>
   </div>
 </div>
@@ -80,7 +105,7 @@
 
   var countDownDate = new Date("Jan 24, 2020 20:00:00").getTime();
   //var countDownDate = new Date("Nov 5, 2019 17:00:00").getTime();
-  var startDate = new Date("Nov 5, 2019 12:00:00").getTime();
+  var startDate = new Date("Jan 6, 2020 12:00:00").getTime();
 
   var now = new Date().getTime();
   var distance = countDownDate - now;
@@ -146,6 +171,12 @@
       //return;
     }
 
+    var fadetime = 500;
+    if ($(window).width() > 1000) {
+    }
+    else {
+
+    }
     setTimeout(function() {
       $("#countdown").fadeTo(4500, 1);
     }, 2000);

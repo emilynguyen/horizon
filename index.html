@@ -4,6 +4,9 @@ title: Home
 permalink: /
 ---
 
+
+
+
 <div id="countdown-container">
   <div id="header">
     <div class="grid">
@@ -26,13 +29,19 @@ permalink: /
       <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes"
         >00</span
       >:<span id="seconds">00</span>
+
+      <div>
+        <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc3-4vuXJDaWOn6qweTfE7TH6V3RG9LlaA7raezFF_PWRKrgw/viewform?usp=sf_link">Register Now</a>
+      </div>
     </div>
+   
   </div>
-  <div id="mountains">
-    <img src="assets/images/home/mountains.png" />
+  
+  <div id="city" class="portable--hide">
+    <img src="assets/images/home/city.png" />
   </div>
   <div id="stars"></div>
-  <div id="moon-container">
+  <div id="moon-container" class="portable--hide">
     <div id="moon"></div>
   </div>
 </div>
@@ -48,7 +57,7 @@ permalink: /
 
   var countDownDate = new Date("Jan 24, 2020 20:00:00").getTime();
   //var countDownDate = new Date("Nov 5, 2019 17:00:00").getTime();
-  var startDate = new Date("Nov 5, 2019 12:00:00").getTime();
+  var startDate = new Date("Jan 6, 2020 12:00:00").getTime();
 
   var now = new Date().getTime();
   var distance = countDownDate - now;
@@ -114,6 +123,12 @@ permalink: /
       //return;
     }
 
+    var fadetime = 500;
+    if ($(window).width() > 1000) {
+    }
+    else {
+
+    }
     setTimeout(function() {
       $("#countdown").fadeTo(4500, 1);
     }, 2000);
