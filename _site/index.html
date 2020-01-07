@@ -54,45 +54,56 @@
 <body>
 	
 	<main>
-		<article>
-			<div id="countdown-container">
-  <div id="header">
-    <div class="grid">
-      <div class="grid__item mt-1" style="text-align: center">
-        <img
-          src="assets/images/home/logo.svg"
-          alt="Horizon | 1.24.2020 | Rimac Arena"
-          style="height: 4.5rem"
-        />
-        <noscript>
-          <div style="font-size: 3vw; font-weight: bold; margin-top: 4vw;">
-            Please enable JavaScript<br />to experience this site.
-          </div>
-        </noscript>
-      </div>
-    </div>
-  </div>
-  <div id="countdown">
-    <div>
-      <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes"
-        >00</span
-      >:<span id="seconds">00</span>
+		<section id='landing'>
+  <div id="countdown-container">
 
-      <div>
-        <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc3-4vuXJDaWOn6qweTfE7TH6V3RG9LlaA7raezFF_PWRKrgw/viewform?usp=sf_link">Register Now</a>
+    <div id="header">
+        <noscript>
+            <div style="font-size: 3vw; font-weight: bold; margin-top: 4vw;">
+              Please enable JavaScript<br />to experience this site.
+            </div>
+          </noscript>
+      <div class="grid">
+          <div class="grid__item one-third" style="text-align: left">
+            socials
+          </div>
+        <div class="grid__item one-third" style="text-align: center">
+          
+          <img
+            src="assets/images/home/logo.svg"
+            alt="Horizon | 1.24.2020 | Rimac Arena"
+            style="height: 4.5rem"
+          />
+        </div>
+        <div class="grid__item one-third" style="text-align: right">
+            socials
+          </div>
       </div>
     </div>
-   
-  </div>
+    <div id="countdown">
+      <div>
+        <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes"
+          >00</span
+        >:<span id="seconds">00</span>
   
-  <div id="city" class="portable--hide">
-    <img src="assets/images/home/city.png" />
+        <div>
+          <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc3-4vuXJDaWOn6qweTfE7TH6V3RG9LlaA7raezFF_PWRKrgw/viewform?usp=sf_link">Register Now</a>
+        </div>
+      </div>
+     
+    </div>
+    
+    <div id="city" class="portable--hide">
+      <img src="assets/images/home/city.png" />
+    </div>
+    <div id="stars"></div>
+    <div id="moon-container" class="portable--hide">
+      <div id="moon"></div>
+    </div>
   </div>
-  <div id="stars"></div>
-  <div id="moon-container" class="portable--hide">
-    <div id="moon"></div>
-  </div>
-</div>
+</section>
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
@@ -179,7 +190,7 @@
     }
     setTimeout(function() {
       $("#countdown").fadeTo(4500, 1);
-    }, 2000);
+    }, 500);
   }, 1000);
 </script>
 
@@ -204,7 +215,6 @@
   }
 </script>
 
-		</article>
 	</main>
 	
 </body>
