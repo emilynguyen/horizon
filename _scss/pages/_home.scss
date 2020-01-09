@@ -1,5 +1,43 @@
+
+#landing {
+  height: 100vh;
+  z-index: -9999;
+  background-image: url("../images/home/bg.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include grid-media-query(portable) {
+    background-image: url("../images/home/bg_full.png");
+  }
+  @include grid-media-query(palm) {
+    background-image: url("../images/home/bg_mobile.png");
+  }
+}
+
 #header {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 99999;
+}
+
+#title {
+  height: 8rem;
+}
+
+.socials {
+  li {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+  img {
+    height: 4rem;
+  }
 }
 
 
@@ -18,37 +56,9 @@
   }
 }
 
-#countdown-container {
-  height: 100vh;
-  //width: 100vw;
- // position: absolute;
-  //top: 0;
-  //left: 0;
-  z-index: -9999;
-  background-image: url("../images/home/bg.png");
-  background-size: cover;
-  background-position: center center;
-  @include grid-media-query(portable) {
-    background-image: url("../images/home/bg_full.png");
-  }
-  @include grid-media-query(palm) {
-    background-image: url("../images/home/bg_mobile.png");
-  }
-
-}
-
-#header {
-  z-index: 9999;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
 #countdown {
   opacity: 0;
   z-index: 9999;
-  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -77,34 +87,22 @@
 }
 
 
-.btn {
-  font-size: .8rem;
-  letter-spacing: .2rem;
-  text-align: center;
-  line-height: 0;
-  white-space: nowrap;
-  text-transform: uppercase;
-  background-color: white;
-  padding: .8rem .8rem .8rem 1rem;
-  text-decoration: none;
-  color: #825780;
-  transition: opacity .3s;
-  @include hover {
-    opacity: .7;
-  }
-}
-body {
-  background: black;
-}
+
 
 #moon-container {
-  z-index: 0;
-  filter: drop-shadow(0 0 8vw $glow);  
+ // z-index: 0;
+  filter: drop-shadow(0 0 5vw $glow);  
   opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
+
 #moon {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -114,12 +112,13 @@ body {
   background-size: cover;
   //clip-path: circle(13vw at center);
   //clip-path: circle(20rem at center 85vh);
-  box-shadow: 0 0 5rem black;
+  //box-shadow: 0 0 5rem black;
 }
 
 #city {
-  z-index: 999;
+  z-index: 99;
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
@@ -137,6 +136,7 @@ body {
 }
 
 #stars {
+  display: none;
   height: 60vh;
   width: 100vw;
   position: absolute;

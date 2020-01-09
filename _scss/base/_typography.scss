@@ -1,4 +1,55 @@
 body {
-  font-family: "Futura", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Futura LT", sans-serif;
   color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+html {
+  font-size: 62.5%;
+  @include grid-media-query(palm) {
+    font-size: 50%;
+  }
+  @include grid-media-query(monitor) {
+    //font-size: 0.55vw;
+  }
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  @include grid-media-query(portable) {
+    font-size: 3.2rem;
+  }
+}
+
+h2,
+p {
+  color: $gray;
+  line-height: 170%;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  @include grid-media-query(portable) {
+    font-size: 2.2rem;
+  }
+}
+
+p {
+  
+}
+
+a {
+  text-decoration: underline;
+  color: inherit;
+  transition: opacity .3s;
+  @include hover {
+    opacity: .5;
+  }
 }

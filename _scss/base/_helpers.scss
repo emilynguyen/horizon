@@ -9,6 +9,22 @@
       .#{$name}hide {
         display: none !important;
       }
+      /* Padding all */
+      .#{$name}p-1 {
+        padding: $spacer-1 !important;
+      }
+  
+      .#{$name}p-2 {
+        padding: $spacer-2 !important;
+      }
+  
+      .#{$name}p-3 {
+        padding: $spacer-3 !important;
+      }
+  
+      .#{$name}p-4 {
+        padding: $spacer-4 !important;
+      }
       /* Padding top */
   
       .#{$name}pt-1 {
@@ -26,7 +42,22 @@
       .#{$name}pt-4 {
         padding-top: $spacer-4 !important;
       }
+       /* Margin all */
+       .#{$name}m-1 {
+        margin: $spacer-1 !important;
+      }
   
+      .#{$name}m-2 {
+        margin: $spacer-2 !important;
+      }
+  
+      .#{$name}m-3 {
+        margin: $spacer-3 !important;
+      }
+  
+      .#{$name}m-4 {
+        margin: $spacer-4 !important;
+      }
       /* Margin top */
       .#{$name}mt-1 {
         margin-top: $spacer-1 !important;
@@ -61,4 +92,8 @@
         margin-bottom: $spacer-4 !important;
       }
     }
+  }
+
+  .bg-purple {
+    background-color: $purple;
   }

@@ -1,7 +1,41 @@
+
 @font-face {
-  font-family: "Futura";
-  src: url("../fonts/futura/Futura-Bold.woff2") format("woff2"),
-    url("../fonts/futura/Futura-Bold.woff") format("woff");
+  font-family: 'Futura LT';
+  src: url('../fonts/futura/FuturaLT-Bold.eot');
+  src: url('../fonts/futura/FuturaLT-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/futura/FuturaLT-Bold.woff2') format('woff2'),
+      url('../fonts/futura/FuturaLT-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Futura LT';
+  src: url('../fonts/futura/FuturaLT-Light.eot');
+  src: url('../fonts/futura/FuturaLT-Light.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/futura/FuturaLT-Light.woff2') format('woff2'),
+      url('../fonts/futura/FuturaLT-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura LT';
+  src: url('../fonts/futura/FuturaLT.eot');
+  src: url('../fonts/futura/FuturaLT.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/futura/FuturaLT.woff2') format('woff2'),
+      url('../fonts/futura/FuturaLT.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura LT';
+  src: url('../fonts/futura/FuturaLT-Medium.eot');
+  src: url('../fonts/futura/FuturaLT-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/futura/FuturaLT-Medium.woff2') format('woff2'),
+      url('../fonts/futura/FuturaLT-Medium.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
