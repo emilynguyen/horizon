@@ -4,13 +4,11 @@ body {
 }
 
 .container {
-  //margin: 0 6%;
   margin: 0 $border;
 }
 
 .content-block {
- // @extend .p-3;
- padding: $border;
+  padding: $border;
   background-color: $purple;
   margin-bottom: $border;
   &:first-child {
@@ -23,45 +21,70 @@ body {
 }
 
 .btn {
+  display: inline-block;
   font-weight: bold;
-  font-size: 1.8rem;
-  letter-spacing: .2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
   text-align: center;
-  line-height: 0;
+  line-height: 200%;
   white-space: nowrap;
   text-transform: uppercase;
   background-color: white;
-  padding: 1.2rem 1.6rem 1.2rem 1.8rem;
+  padding: 1rem 2.2rem 1rem 2.4rem;
+
   border-radius: 5rem;
   text-decoration: none;
   color: #825780;
-  transition: filter .5s;
-  filter: drop-shadow(0 0 0 $glow);  
+  transition: filter 0.5s;
+  filter: drop-shadow(0 0 0 $glow);
   @include hover {
     opacity: 1;
-    filter: drop-shadow(0 0 1.5rem $glow);  
+    filter: drop-shadow(0 0 1.5rem $glow);
   }
 }
 
-button {
-  font-size: inherit;
-}
-
 .accordion {
-  max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
   font-size: inherit;
-  background-color: white;
-  padding: 1.2rem 1.6rem 1.2rem 1.8rem;
-  border-radius: 5rem;
-  margin-bottom: $spacer-1;
+  padding-bottom: $spacer-1;
+  cursor: pointer;
+  @include grid-media-query(portable) {
+    padding-bottom: 0;
+  }
   h2 {
-    color: $purple;
+    transition: opacity 0.3s;
+    opacity: 0.3;
+    @include hover {
+      opacity: 1;
+    }
+    &:after {
+      content: "+";
+      padding-left: $spacer-2;
+    }
+  }
+  &.active {
+    h2 {
+      opacity: 1;
+      @include hover {
+        opacity: 0.3;
+      }
+      &:after {
+        content: "–";
+      }
+    }
   }
 }
 
 .panel {
+  // border-top: .1rem solid $gray;
+  // border-bottom: .1rem solid $gray;
   display: none;
- // overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding-bottom: $spacer-2;
+  p:not(:last-child), h3 {
+    margin-bottom: $spacer-1;
+  }
 }

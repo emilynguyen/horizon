@@ -72,14 +72,17 @@ permalink: /
   </div>
 </section>
 
-<section id="artists">
+<section id="lineup">
   <div class="container content-block">
-    <h1>Artists</h1>
+    <h1>Lineup</h1>
   </div>
 </section>
 <section id="registration">
   <div class="container content-block">
     <h1 class="mb-2">Registration</h1>
+    <h2 class="mb-2">
+    Registration is now OPEN! All UCSD Undergrads must register to attend the concerts. Registration closes on January 22nd at 11PM!</h2>
+    <!--
     <h2 class="mb-2">
       Horizon is FREE for all UCSD Undergraduates with a valid student ID.
     </h2>
@@ -97,51 +100,38 @@ permalink: /
       are first come, first serve! Come early to ensure that you receive a
       wristband for entry into Horizon 2020.
     </p>
-    <h2>
+    <h2 class="mb-2">
       THERE WILL BE NO RE-ENTRY INTO THE FESTIVAL.
-    </h2>
-  </div>
-</section>
-<section id="volunteer">
-  <div class="container content-block">
-    <h1 class="mb-2">Volunteer</h1>
-    <h2 class="mb-2">
-      Interested in volunteering at Horizon?
-    </h2>
-    <p class="mb-2">
-      Please fill out the volunteer application to sign up for a shift!
-    </p>
-    <p class="mb-2">
-      The deadline to submit the volunteer application is January 18, 2020 at
-      11:59PM. For any questions, please contact Chelsea Seo at
-      <a href="mailto:ascechiefofstaff@ucsd.edu">ascechiefofstaff@ucsd.edu</a>.
-      Thank you and we look forward to seeing you at Horizon 2020!
-    </p>
+    </h2>-->
     <p>
-      <a class="btn" href="" target="_blank">Apply Here</a>
+      <a
+        class="btn"
+        target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSc3-4vuXJDaWOn6qweTfE7TH6V3RG9LlaA7raezFF_PWRKrgw/viewform?usp=sf_link"
+        >Register Now</a
+      >
     </p>
   </div>
 </section>
-<section id="health-safety">
+<section id="info">
+    <div class="container content-block">
+        <h1 class="mb-2">Info</h1>
+    {% for info in site.data.info %}
+    {% assign accordion = info %}
+    {% include accordion.html %}
+{% endfor %}
+</div>
+</section>
+
+<section id="safety">
   <div class="container content-block">
-    <h1 class="mb-2">Health & Safety</h1>
-    <h2 class="mb-2">
-      Choose a topic to learn more.
-    </h2>
-    <div class="accordion"><h2>Drug Health and Safety</h2></div>
-    <div class="panel">
-      <p>Lorem ipsum...</p>
-    </div>
+    <h1 class="mb-2">Safety</h1>
+  {% for tip in site.data.safety %}
+    {% assign accordion = tip %}
+    {% include accordion.html %}
+{% endfor %}
 
-    <div class="accordion"><h2>Alcohol Health and Safety</h2></div>
-    <div class="panel">
-      <p>Lorem ipsum...</p>
-    </div>
 
-    <div class="accordion"><h2>Sexual Assault Prevention</h2></div>
-    <div class="panel">
-      <p>Lorem ipsum...</p>
-    </div>
   </div>
 </section>
 
@@ -250,5 +240,22 @@ permalink: /
       Math.random() * STARS_W +
       'vw;"></div>';
     $("#stars").append(star);
+  }
+</script>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+
+      this.classList.toggle("active");
+
+      /* Toggle between hiding and showing the active panel */
+      var panel = this.nextElementSibling;
+      $(panel).slideToggle(400);
+
+    });
   }
 </script>

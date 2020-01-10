@@ -1018,22 +1018,23 @@ body {
       padding-bottom: 4rem; } }
 
 .btn {
+  display: inline-block;
   font-weight: bold;
-  font-size: 1.8rem;
-  letter-spacing: .2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
   text-align: center;
-  line-height: 0;
+  line-height: 200%;
   white-space: nowrap;
   text-transform: uppercase;
   background-color: white;
-  padding: 1.2rem 1.6rem 1.2rem 1.8rem;
+  padding: 1rem 2.2rem 1rem 2.4rem;
   border-radius: 5rem;
   text-decoration: none;
   color: #825780;
-  -webkit-transition: -webkit-filter .5s;
-  transition: -webkit-filter .5s;
-  transition: filter .5s;
-  transition: filter .5s, -webkit-filter .5s;
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
   -webkit-filter: drop-shadow(0 0 0 rgba(237, 203, 225, 0.7));
           filter: drop-shadow(0 0 0 rgba(237, 203, 225, 0.7)); }
   @media (hover: hover) {
@@ -1042,23 +1043,41 @@ body {
       -webkit-filter: drop-shadow(0 0 1.5rem rgba(237, 203, 225, 0.7));
               filter: drop-shadow(0 0 1.5rem rgba(237, 203, 225, 0.7)); } }
 
-button {
-  font-size: inherit; }
-
 .accordion {
-  max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
   font-size: inherit;
-  background-color: white;
-  padding: 1.2rem 1.6rem 1.2rem 1.8rem;
-  border-radius: 5rem;
-  margin-bottom: 2rem; }
+  padding-bottom: 2rem;
+  cursor: pointer; }
+  @media only screen and (max-width: 1023px) {
+    .accordion {
+      padding-bottom: 0; } }
   .accordion h2 {
-    color: #2b1b42; }
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 0.3; }
+    @media (hover: hover) {
+      .accordion h2:hover {
+        opacity: 1; } }
+    .accordion h2:after {
+      content: "+";
+      padding-left: 4rem; }
+  .accordion.active h2 {
+    opacity: 1; }
+    @media (hover: hover) {
+      .accordion.active h2:hover {
+        opacity: 0.3; } }
+    .accordion.active h2:after {
+      content: "–"; }
 
 .panel {
-  display: none; }
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding-bottom: 4rem; }
+  .panel p:not(:last-child), .panel h3 {
+    margin-bottom: 2rem; }
 
 @font-face {
   font-family: 'Futura LT';
@@ -1087,7 +1106,7 @@ button {
 body {
   -webkit-font-smoothing: antialiased;
   font-family: "Futura LT", sans-serif;
-  color: #fff;
+  color: #b7b3bc;
   text-align: center;
   font-size: 1.8rem;
   font-weight: 500; }
@@ -1099,6 +1118,7 @@ html {
       font-size: 50%; } }
 
 h1 {
+  color: #fff;
   font-weight: bold;
   font-size: 7rem;
   text-transform: uppercase;
@@ -1108,8 +1128,7 @@ h1 {
       font-size: 3.2rem; } }
 
 h2,
-p {
-  color: #b7b3bc;
+p, li {
   line-height: 170%; }
 
 h2 {
@@ -1117,7 +1136,7 @@ h2 {
   font-weight: 600; }
   @media only screen and (max-width: 1023px) {
     h2 {
-      font-size: 2.2rem; } }
+      font-size: 2rem; } }
 
 a {
   text-decoration: underline;
@@ -1127,6 +1146,24 @@ a {
   @media (hover: hover) {
     a:hover {
       opacity: .5; } }
+
+ol {
+  list-style-type: decimal; }
+
+ul {
+  list-style-type: circle; }
+
+li {
+  padding-left: 2rem;
+  margin: 1rem 0 1rem 2rem; }
+
+h3, b {
+  font-weight: bold; }
+
+h1, h2, h3, p, ol, ul {
+  max-width: 100rem;
+  margin-left: auto;
+  margin-right: auto; }
 
 @media only screen and (min-width: 0) {
   .hide {
@@ -1604,8 +1641,8 @@ a {
 
   .monitor--mb-4 {
     margin-bottom: 16rem !important; } }
-.bg-purple {
-  background-color: #2b1b42; }
+.text-center {
+  text-align: center; }
 
 #landing {
   height: 100vh;
@@ -1635,16 +1672,25 @@ a {
   left: 0;
   width: 100%;
   z-index: 99999; }
+  #header li {
+    margin: 0;
+    padding: 0; }
 
 #title {
   height: 8rem; }
+  @media only screen and (max-width: 1023px) {
+    #title {
+      height: 8vw; } }
 
 .socials li {
   display: inline-block; }
   .socials li:not(:last-child) {
-    margin-right: 1rem; }
+    margin-right: .5rem !important; }
 .socials img {
   height: 4rem; }
+  @media only screen and (max-width: 1023px) {
+    .socials img {
+      height: 3rem; } }
 
 #register {
   position: absolute;

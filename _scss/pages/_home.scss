@@ -22,21 +22,31 @@
   left: 0;
   width: 100%;
   z-index: 99999;
+  li {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 #title {
   height: 8rem;
+  @include grid-media-query(portable) {
+    height: 8vw;
+  }
 }
 
 .socials {
   li {
     display: inline-block;
     &:not(:last-child) {
-      margin-right: 1rem;
+      margin-right: .5rem !important;
     }
   }
   img {
     height: 4rem;
+    @include grid-media-query(portable) {
+      height: 3rem;
+    }
   }
 }
 
@@ -86,11 +96,7 @@
   }
 }
 
-
-
-
 #moon-container {
- // z-index: 0;
   filter: drop-shadow(0 0 5vw $glow);  
   opacity: 0;
   position: absolute;
@@ -110,8 +116,6 @@
   background-image: url("../images/home/bg.png");
   background-position: center center;
   background-size: cover;
-  //clip-path: circle(13vw at center);
-  //clip-path: circle(20rem at center 85vh);
   //box-shadow: 0 0 5rem black;
 }
 
@@ -127,9 +131,7 @@
   background-position: center bottom;
   background-size: cover;
   img {
-    //width: 101vw;
     min-width: 100%;
-    // height:
     overflow: hidden;
     display: none;
   }
@@ -190,3 +192,5 @@
     transform: scale(1, 1);
   }
 }
+
+
