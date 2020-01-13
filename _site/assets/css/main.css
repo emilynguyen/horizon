@@ -1055,7 +1055,7 @@ body {
   .accordion h2 {
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
-    opacity: 0.3; }
+    opacity: 0.5; }
     @media (hover: hover) {
       .accordion h2:hover {
         opacity: 1; } }
@@ -1782,9 +1782,10 @@ h1, h2, h3, p, ol, ul {
     display: none; }
 
 #stars {
-  display: none;
+  overflow: hidden;
   height: 60vh;
-  width: 100vw;
+  height: 60%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0; }
