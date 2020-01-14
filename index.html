@@ -45,12 +45,13 @@ permalink: /
   </div>
 
   <div id="countdown">
-    <div>
-      <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes"
-        >00</span
-      >:<span id="seconds">00</span>
+    <div id="countdown-wrapper">
+      <span id="days">00</span><span class="colon">:</span
+      ><span id="hours">00</span><span class="colon">:</span
+      ><span id="minutes">00</span><span class="colon">:</span
+      ><span id="seconds">00</span>
 
-      <div>
+      <div id="register-btn">
         <a
           class="btn"
           target="_blank"
@@ -81,7 +82,9 @@ permalink: /
   <div class="container content-block">
     <h1 class="mb-2">Registration</h1>
     <h2 class="mb-2">
-    Registration is now OPEN! All UCSD Undergrads must register to attend the concerts. Registration closes on January 22nd at 11PM!</h2>
+      Registration is now OPEN! All UCSD Undergrads must register to attend the
+      concerts. Registration closes on January 22nd at 11PM!
+    </h2>
     <!--
     <h2 class="mb-2">
       Horizon is FREE for all UCSD Undergraduates with a valid student ID.
@@ -114,28 +117,40 @@ permalink: /
   </div>
 </section>
 <section id="info">
-    <div class="container content-block">
-        <h1 class="mb-2">Info</h1>
-    {% for info in site.data.info %}
-    {% assign accordion = info %}
-    {% include accordion.html %}
-{% endfor %}
-</div>
+  <div class="container content-block">
+    <h1 class="mb-2">Info</h1>
+    {% for info in site.data.info %} {% assign accordion = info %} {% include
+    accordion.html %} {% endfor %}
+  </div>
 </section>
 
 <section id="safety">
   <div class="container content-block">
     <h1 class="mb-2">Safety</h1>
-  {% for tip in site.data.safety %}
-    {% assign accordion = tip %}
-    {% include accordion.html %}
-{% endfor %}
-
-
+    {% for tip in site.data.safety %} {% assign accordion = tip %} {% include
+    accordion.html %} {% endfor %}
   </div>
 </section>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script>
+  var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+  if (iOS) {
+    var visibleHeight = window.innerHeight;
+  document.getElementById("landing").style.height =
+      visibleHeight + "px";
+  }
+/*
+  $(window).resize(function() {
+    if (iOS) {
+    var visibleHeight = window.innerHeight;
+  document.getElementById("landing").style.height =
+      visibleHeight + "px";
+  }
+  } */
+</script>
 
 <script>
   $(document).ready(function() {
@@ -219,7 +234,7 @@ permalink: /
     setTimeout(function() {
       $("#countdown").fadeTo(4500, 1);
     }, 500);
-  }, 1000);
+  }, 500);
 </script>
 
 <script>
@@ -249,13 +264,11 @@ permalink: /
 
   for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-
       this.classList.toggle("active");
 
       /* Toggle between hiding and showing the active panel */
       var panel = this.nextElementSibling;
       $(panel).slideToggle(400);
-
     });
   }
 </script>
