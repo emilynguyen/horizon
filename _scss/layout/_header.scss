@@ -1,0 +1,65 @@
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  white-space: nowrap;
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  background-color: $dark-purple;
+  height: 8rem;
+  width: 100%;
+  font-weight: 300;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 120%;
+  white-space: nowrap;
+  @include grid-media-query(lap) {
+    font-size: 90%;
+    height: 6rem;
+  }
+  @include grid-media-query(palm) {
+    font-size: 3.6vw;
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    &:not(:last-child) {
+      &:after {
+        content: "•";
+        user-select: none;
+        padding: 0 2rem;
+        @include grid-media-query(lap) {
+          padding: 0 0.7rem;
+        }
+        @include grid-media-query(palm) {
+          padding: 0 0.5rem;
+        }
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}

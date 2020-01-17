@@ -1035,13 +1035,13 @@ body {
   transition: -webkit-filter 0.5s;
   transition: filter 0.5s;
   transition: filter 0.5s, -webkit-filter 0.5s;
-  -webkit-filter: drop-shadow(0 0 0 rgba(237, 203, 225, 0.7));
-          filter: drop-shadow(0 0 0 rgba(237, 203, 225, 0.7)); }
+  -webkit-filter: drop-shadow(0 0 0 rgba(237, 203, 225, 0.9));
+          filter: drop-shadow(0 0 0 rgba(237, 203, 225, 0.9)); }
   @media (hover: hover) {
     .btn:hover {
       opacity: 1;
-      -webkit-filter: drop-shadow(0 0 1.5rem rgba(237, 203, 225, 0.7));
-              filter: drop-shadow(0 0 1.5rem rgba(237, 203, 225, 0.7)); } }
+      -webkit-filter: drop-shadow(0 0 1.5rem rgba(237, 203, 225, 0.9));
+              filter: drop-shadow(0 0 1.5rem rgba(237, 203, 225, 0.9)); } }
 
 .accordion {
   margin-left: auto;
@@ -1080,7 +1080,7 @@ body {
   font-family: 'Futura LT';
   src: url("../fonts/futura/FuturaLT-Bold.eot");
   src: url("../fonts/futura/FuturaLT-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/futura/FuturaLT-Bold.woff2") format("woff2"), url("../fonts/futura/FuturaLT-Bold.woff") format("woff");
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal; }
 @font-face {
   font-family: 'Futura LT';
@@ -1116,7 +1116,7 @@ html {
 
 h1 {
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 7rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem; }
@@ -1129,6 +1129,7 @@ p, li {
   line-height: 170%; }
 
 h2 {
+  color: #fff;
   font-size: 2.4rem;
   font-weight: 600; }
   @media only screen and (max-width: 1023px) {
@@ -1155,7 +1156,8 @@ li {
   margin: 1rem 0 1rem 2rem; }
 
 h3, b {
-  font-weight: bold; }
+  font-weight: bold;
+  color: #fff; }
 
 h1, h2, h3, p, ol, ul {
   max-width: 100rem;
@@ -1641,8 +1643,70 @@ h1, h2, h3, p, ol, ul {
 .text-center {
   text-align: center; }
 
-#lineup, #info, #safety {
-  display: none; }
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  white-space: nowrap; }
+  #header li {
+    margin: 0;
+    padding: 0; }
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99999;
+  background-color: #1b1129;
+  height: 8rem;
+  width: 100%;
+  font-weight: 300;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 120%;
+  white-space: nowrap; }
+  @media only screen and (min-width: 481px) and (max-width: 1023px) {
+    nav {
+      font-size: 90%;
+      height: 6rem; } }
+  @media only screen and (max-width: 480px) {
+    nav {
+      font-size: 3.6vw; } }
+  nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0; }
+  nav ul {
+    list-style: none; }
+  nav li {
+    margin: 0;
+    padding: 0;
+    display: inline-block; }
+    nav li:not(:last-child):after {
+      content: "•";
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      padding: 0 2rem; }
+      @media only screen and (min-width: 481px) and (max-width: 1023px) {
+        nav li:not(:last-child):after {
+          padding: 0 0.7rem; } }
+      @media only screen and (max-width: 480px) {
+        nav li:not(:last-child):after {
+          padding: 0 0.5rem; } }
+  nav a {
+    text-decoration: none; }
 
 #landing {
   height: 100vh;
@@ -1661,22 +1725,10 @@ h1, h2, h3, p, ol, ul {
           justify-content: center; }
   @media only screen and (min-width: 481px) and (max-width: 1023px) {
     #landing {
-      min-height: 800px;
       background-image: url("../images/home/bg_full.png"); } }
   @media only screen and (max-width: 480px) {
     #landing {
-      min-height: 550px;
       background-image: url("../images/home/bg_mobile.png"); } }
-
-#header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 99999; }
-  #header li {
-    margin: 0;
-    padding: 0; }
 
 #title {
   height: 8rem; }
@@ -1726,22 +1778,23 @@ h1, h2, h3, p, ol, ul {
       -ms-flex-align: center;
           align-items: center;
   font-family: "Futura", sans-serif;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
-  letter-spacing: 0.6vw;
-  text-shadow: 0 0 1.5vw rgba(237, 203, 225, 0.7);
+  letter-spacing: 0.3vw;
+  text-shadow: 0 0 2vw rgba(237, 203, 225, 0.9);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   text-align: center;
   line-height: 60%;
-  font-size: 10vw; }
+  font-size: 9vw; }
   #countdown span {
     margin: 0 1.5vw 0 1.5vw; }
   @media only screen and (max-width: 1023px) {
     #countdown {
-      line-height: 100%; } }
+      line-height: 100%;
+      text-shadow: 0 0 5vw rgba(237, 203, 225, 0.9); } }
   @media only screen and (max-width: 480px) {
     #countdown {
       line-height: 130%; } }
@@ -1755,9 +1808,10 @@ h1, h2, h3, p, ol, ul {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    font-size: 11vh;
+    font-size: 10vh;
     line-height: 125%;
-    letter-spacing: 1vh; }
+    letter-spacing: 1vh;
+    margin-top: -3rem; }
     #countdown-wrapper .colon {
       display: none; }
     #countdown-wrapper #days, #countdown-wrapper #hours, #countdown-wrapper #minutes, #countdown-wrapper #seconds {
@@ -1786,11 +1840,11 @@ h1, h2, h3, p, ol, ul {
     #countdown-wrapper #seconds:after {
       content: "S"; }
     #countdown-wrapper #register-btn {
-      margin-top: -3rem; } }
+      margin-top: -1rem; } }
 
 #moon-container {
-  -webkit-filter: drop-shadow(0 0 5vw rgba(237, 203, 225, 0.7));
-          filter: drop-shadow(0 0 5vw rgba(237, 203, 225, 0.7));
+  -webkit-filter: drop-shadow(0 0 4vw rgba(237, 203, 225, 0.9));
+          filter: drop-shadow(0 0 4vw rgba(237, 203, 225, 0.9));
   opacity: 0;
   position: absolute;
   top: 0;
@@ -1901,3 +1955,20 @@ h1, h2, h3, p, ol, ul {
     background: rgba(255, 255, 255, 0);
     -webkit-transform: scale(1, 1);
             transform: scale(1, 1); } }
+#lineup img {
+  max-width: 100%;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s; }
+#lineup h2 {
+  text-transform: uppercase; }
+  @media only screen and (min-width: 1024px) {
+    #lineup h2 {
+      font-size: 200%; } }
+@media (hover: hover) {
+  #lineup a:hover {
+    opacity: 1; }
+    #lineup a:hover img {
+      -webkit-transform: scale(1.08);
+              transform: scale(1.08); } }

@@ -8,7 +8,7 @@ permalink: /
   <div id="header">
     <div class="container mt-1">
       <div class="grid">
-        <div class="grid__item one-third" style="text-align: left;">
+        <div class="grid__item one-third palm--one-quarter" style="text-align: left;">
           <ul class="socials">
             <li>
               <a href="http://asce.ucsd.edu/" target="_blank">
@@ -17,7 +17,7 @@ permalink: /
             </li>
           </ul>
         </div>
-        <div class="grid__item one-third" style="text-align: center;">
+        <div class="grid__item one-third palm--two-quarters" style="text-align: center;">
           <a href="/">
             <img
               id="title"
@@ -26,7 +26,7 @@ permalink: /
             />
           </a>
         </div>
-        <div class="grid__item one-third" style="text-align: right;">
+        <div class="grid__item one-third palm--one-quarter" style="text-align: right;">
           <ul class="socials">
             <li>
               <a href="https://www.facebook.com/ucsdasce/" target="_blank">
@@ -71,41 +71,23 @@ permalink: /
   <div id="moon-container" class="portable--hide">
     <div id="moon"></div>
   </div>
+
+  {% include nav.html %}
 </section>
 
-<section id="lineup">
-  <div class="container content-block">
-    <h1>Lineup</h1>
-  </div>
-</section>
 <section id="registration">
   <div class="container content-block">
-    <h1 class="mb-2">Registration</h1>
+    <h1 class="mb-2">Horizon 2020</h1>
     <h2 class="mb-2">
+      January 24th 2020<br />
+      7PM – 11PM<br />
+      RIMAC Arena
+    </h2>
+
+    <p class="mb-2">
       Registration is now OPEN! All UCSD Undergrads must register to attend the
       concerts. Registration closes on January 22nd at 11PM!
-    </h2>
-    <!--
-    <h2 class="mb-2">
-      Horizon is FREE for all UCSD Undergraduates with a valid student ID.
-    </h2>
-    <p class="mb-2">
-      Wristbands are REQUIRED for entry into the event! Students can pick up
-      their wristbands at the Horizon Registration Tent on Library Walk outside
-      of the Bookstore. Students must bring their valid undergraduate student ID
-      to scan in and receive a wristband for the event. Registration will start
-      at 12:00PM and run through the event until 11:00PM on January 23.
     </p>
-    <p class="mb-2">
-      Doors to the festival will open at 8:00PM. Students can make their way
-      down Lyman Lane to Town Square (in front of the Triton Statue) to enter
-      the festival after receiving their wristband. Wristbands are limited and
-      are first come, first serve! Come early to ensure that you receive a
-      wristband for entry into Horizon 2020.
-    </p>
-    <h2 class="mb-2">
-      THERE WILL BE NO RE-ENTRY INTO THE FESTIVAL.
-    </h2>-->
     <p>
       <a
         class="btn"
@@ -116,6 +98,26 @@ permalink: /
     </p>
   </div>
 </section>
+<section id="lineup">
+  <div class="container content-block">
+    <h1 class="mb-2">Lineup</h1>
+    <div class="grid">
+      <div class="grid__item">
+        <a href="https://open.spotify.com/artist/6cK3NBO6uP7hh0oyuVELFl?si=ZjDKCrUwRuSF3hzMCGUzdA" target="_blank">
+          <img src="assets/images/lineup/saweetie.png" alt="Saweetie"></a>
+          <h2>Saweetie</h2>
+      </div>
+      <div class="grid__item lap-up--one-half">
+          <img src="assets/images/lineup/placeholder.png" alt="Saweetie">
+          <h2>TBA</h2>
+      </div>
+      <div class="grid__item lap-up--one-half">
+          <img src="assets/images/lineup/placeholder.png" alt="Saweetie">
+          <h2>TBA</h2>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="info">
   <div class="container content-block">
     <h1 class="mb-2">Info</h1>
@@ -123,7 +125,13 @@ permalink: /
     accordion.html %} {% endfor %}
   </div>
 </section>
-
+<section id="faq">
+  <div class="container content-block">
+    <h1 class="mb-2">FAQ</h1>
+    {% for category in site.data.faq %} {% assign accordion = category %} {%
+    include accordion.html %} {% endfor %}
+  </div>
+</section>
 <section id="safety">
   <div class="container content-block">
     <h1 class="mb-2">Safety</h1>
@@ -135,21 +143,55 @@ permalink: /
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <script>
-  var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var NAV = $('nav');
+    var NAV_HEIGHT = NAV.height();
 
-  if (iOS) {
-    var visibleHeight = window.innerHeight;
-  document.getElementById("landing").style.height =
-      visibleHeight + "px";
-  }
-/*
-  $(window).resize(function() {
     if (iOS) {
-    var visibleHeight = window.innerHeight;
-  document.getElementById("landing").style.height =
-      visibleHeight + "px";
-  }
-  } */
+      var visibleHeight = window.innerHeight;
+      document.getElementById("landing").style.height = visibleHeight + "px";
+    } 
+    /*
+    window.onresize = function() {
+      
+      if (iOS) {
+        var visibleHeight = window.innerHeight;
+        document.getElementById("landing").style.height = visibleHeight + "px";
+      } 
+    } */
+
+    function scrollChanges() {
+     
+      // NAV
+      // get position of top of nav
+      var landing = document.getElementById("landing");
+      var pos = landing.getBoundingClientRect().bottom;
+      pos -= NAV_HEIGHT;
+     
+
+      if (pos <= 0) {
+        NAV.addClass('fixed');
+   
+      } else {
+        NAV.removeClass('fixed');
+      }
+
+      
+    }
+
+
+    $(window).bind("load resize scroll",function(){
+     scrollChanges();
+    });
+
+    $('nav a').click(function() {
+    var href = $(this).attr("href");
+    $('html, body').animate({
+      scrollTop: $(href).offset().top - NAV_HEIGHT
+    }, 500);
+    return false;
+  });
+    
 </script>
 
 <script>
