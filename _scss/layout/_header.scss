@@ -22,10 +22,12 @@ nav {
   font-weight: 300;
   text-transform: uppercase;
   position: absolute;
-  bottom: 0;
+ // bottom: 0;
+ bottom: -$border; //new
   left: 0;
   font-size: 120%;
   white-space: nowrap;
+  padding-bottom: $border; //new
   @include grid-media-query(lap) {
     font-size: 90%;
     height: 6rem;
@@ -37,6 +39,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
+    padding-bottom: 0; // new
   }
   ul {
     list-style: none;

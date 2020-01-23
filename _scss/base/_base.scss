@@ -1,6 +1,6 @@
 html,
-body {
-  background-color: $dark-purple;
+body, main {
+  background-color: $dark-purple !important;
 }
 
 
@@ -14,7 +14,7 @@ body {
   background-color: $purple;
   margin-bottom: $border;
   &:first-child {
-    margin-top: $border;
+    //margin-top: $border;
   }
   @include grid-media-query(portable) {
     padding-top: $spacer-2;
@@ -30,12 +30,13 @@ body {
   text-align: center;
   line-height: 200%;
   white-space: nowrap;
+  padding-bottom: $border; // new
   text-transform: uppercase;
   background-color: white;
   padding: 1rem 2.2rem 1rem 2.4rem;
   border-radius: 5rem;
   text-decoration: none;
-  color: #825780;
+  color: $light-purple;
   transition: filter 0.5s;
   filter: drop-shadow(0 0 0 $glow);
   @include hover {
@@ -48,11 +49,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: inherit;
-  padding-bottom: $spacer-1;
+  padding-top: $spacer-1;
   cursor: pointer;
-  @include grid-media-query(portable) {
-    //padding-bottom: 0;
-  }
   h2 {
     transition: opacity 0.3s;
     opacity: 0.5;

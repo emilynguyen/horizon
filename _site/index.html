@@ -101,7 +101,7 @@
       ><span id="minutes">00</span><span class="colon">:</span
       ><span id="seconds">00</span>
 
-      <div id="register-btn">
+      <div id="register-btn" class="hide">
         <a
           class="btn"
           target="_blank"
@@ -119,7 +119,8 @@
   <div id="stars"></div>
 
   <div id="moon-container" class="portable--hide">
-    <div id="moon"></div>
+    <div id="moon">
+    </div>
   </div>
 
   <nav>
@@ -155,12 +156,10 @@
       7PM – 11PM<br />
       RIMAC Arena
     </h2>
-
-    <p class="mb-2">
-      Registration is now OPEN! All UCSD Undergrads must register to attend the
-      concerts. Registration closes on January 22nd at 11PM!
-    </p>
     <p>
+      Registration is now closed. Please email any questions to <a href="mailto:avpconcerts@ucsd.edu">avpconcerts@ucsd.edu</a>.
+    </p>
+    <p class="hide">
       <a
         class="btn"
         target="_blank"
@@ -180,19 +179,23 @@
           <h2>Saweetie</h2>
       </div>
       <div class="grid__item lap-up--one-half">
-          <img src="assets/images/lineup/placeholder.png" alt="Saweetie">
-          <h2>TBA</h2>
+        <a href="https://open.spotify.com/artist/4T8NIfZmVY6TJFqVzN6X49?si=32qXqvgXRmaKUnSibRyuZg" target="_blank">
+          <img src="assets/images/lineup/tobi-lou.png" alt="tobi lou"></a>
+          <h2>tobi lou</h2>
       </div>
       <div class="grid__item lap-up--one-half">
-          <img src="assets/images/lineup/placeholder.png" alt="Saweetie">
-          <h2>TBA</h2>
+        <a href="https://open.spotify.com/artist/6FwT2rUFgBnZXDPMrWPaKO?si=lvEU96tXQuaJ-YAd6ebtPQ" target="_blank">
+
+        
+          <img src="assets/images/lineup/dj-demon.png" alt="DJ Demon"></a>
+          <h2>DJ Demon</h2>
       </div>
     </div>
   </div>
 </section>
 <section id="info">
   <div class="container content-block">
-    <h1 class="mb-2">Info</h1>
+    <h1 class="mb-1">Info</h1>
       <div class="accordion"><h2>About</h2></div>
 <div class="panel">
   <p>
@@ -228,7 +231,7 @@
 </section>
 <section id="faq">
   <div class="container content-block">
-    <h1 class="mb-2">FAQ</h1>
+    <h1 class="mb-1">FAQ</h1>
       <div class="accordion"><h2>Health & Safety</h2></div>
 <div class="panel">
   <p>
@@ -270,7 +273,7 @@
 </section>
 <section id="safety">
   <div class="container content-block">
-    <h1 class="mb-2">Safety</h1>
+    <h1 class="mb-1">Safety</h1>
       <div class="accordion"><h2>Drug Safety</h2></div>
 <div class="panel">
   <p>
@@ -316,13 +319,31 @@
  
   </div>
 </section>
+<section id="sponsors" class="mb-3">
+  <div class="container">
+    <h2 class="mb-2">Sponsors</h2>
+    <div class="grid">
+      <div class="grid__item one-half" style="text-align: right;">
+        <a href="https://library.ucsd.edu/visit/audreys-cafe/index.html" target="_blank">
+        <img src="assets/images/sponsors/audreys.png" alt="Audrey's Cafe"></a>
+      </div>
+      <div class="grid__item one-half" style="text-align: left;">
+        <a href="https://ucsandiegobookstore.com/" target="_blank">
+          <img src="assets/images/sponsors/bookstore.png" alt="UC San Diego Bookstore">
+        </a>
+        </div>
+    </div>
+  </div>
+</section>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <script>
     var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     var NAV = $('nav');
-    var NAV_HEIGHT = NAV.height();
+   // var NAV_HEIGHT = NAV.height();
+    var NAV_HEIGHT = NAV.innerHeight();
+
 
     if (iOS) {
       var visibleHeight = window.innerHeight;
@@ -344,18 +365,18 @@
       var landing = document.getElementById("landing");
       var pos = landing.getBoundingClientRect().bottom;
       pos -= NAV_HEIGHT;
-     
 
+      console.log(pos);
+     
       if (pos <= 0) {
         NAV.addClass('fixed');
+        $('#moon').hide();
    
       } else {
         NAV.removeClass('fixed');
+        $('#moon').show();
       }
-
-      
     }
-
 
     $(window).bind("load resize scroll",function(){
      scrollChanges();
