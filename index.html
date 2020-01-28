@@ -60,7 +60,7 @@ permalink: /
         >
       </div>-->
       <div>
-          Thank you for journeying beyond the Horizon with us. Stay up to date with us at <a href="asce.ucsd.edu" target="_blank">asce.ucsd.edu</a>
+          Thank you for journeying beyond the Horizon with us. Stay up to date with us at <a href="http://asce.ucsd.edu/" target="_blank">asce.ucsd.edu</a>
       </div>
     </div>
   </div>
@@ -194,8 +194,6 @@ permalink: /
       var landing = document.getElementById("landing");
       var pos = landing.getBoundingClientRect().bottom;
       pos -= NAV_HEIGHT;
-
-      console.log(pos);
      
       if (pos <= 0) {
         NAV.addClass('fixed');
@@ -307,7 +305,7 @@ permalink: /
   var STARS_H = 60;
 
   for (var i = 0; i < NUM_STARS; i++) {
-    console.log("add star");
+   
     var star =
       '<div class="star" style="animation: twinkle ' +
       (Math.random() * 4 + 5) +
