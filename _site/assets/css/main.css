@@ -1765,7 +1765,6 @@ nav {
     color: white; }
 
 #countdown {
-  opacity: 0;
   z-index: 9999;
   top: 0;
   left: 0;
@@ -1780,46 +1779,44 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Futura", sans-serif;
+  font-family: "Futura LT", sans-serif;
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.3vw;
   text-shadow: 0 0 2vw rgba(237, 203, 225, 0.9);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   text-align: center;
-  line-height: 60%;
-  font-size: 9vw; }
+  font-size: 3vw;
+  line-height: 130%; }
   #countdown span {
     margin: 0 1.5vw 0 1.5vw; }
   @media only screen and (max-width: 1023px) {
     #countdown {
-      line-height: 100%;
-      text-shadow: 0 0 5vw rgba(237, 203, 225, 0.9); } }
+      text-shadow: 0 0 5vw rgba(237, 203, 225, 0.9);
+      font-size: 3.5rem; } }
   @media only screen and (max-width: 480px) {
     #countdown {
       line-height: 130%; } }
 
-@media only screen and (max-width: 1023px) {
-  #countdown-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
+#countdown-wrapper {
+  max-width: 80rem;
+  padding: 10vw;
+  /*
+  @include grid-media-query(portable) {
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     font-size: 10vh;
     line-height: 125%;
     letter-spacing: 1vh;
-    margin-top: -3rem; }
-    #countdown-wrapper .colon {
-      display: none; }
-    #countdown-wrapper #days, #countdown-wrapper #hours, #countdown-wrapper #minutes, #countdown-wrapper #seconds {
-      position: relative; }
-      #countdown-wrapper #days:after, #countdown-wrapper #hours:after, #countdown-wrapper #minutes:after, #countdown-wrapper #seconds:after {
+    margin-top: -3rem;
+    .colon {
+      display: none;
+    }
+    #days, #hours, #minutes, #seconds {
+      position: relative;
+      &:after {
         display: block;
         width: calc(100% - 3vh);
         left: calc(3vh / 2);
@@ -1833,17 +1830,35 @@ nav {
         line-height: 0;
         font-size: 1.2rem;
         border-top: .2rem solid #fff;
-        opacity: .6; }
-    #countdown-wrapper #days:after {
-      content: "D"; }
-    #countdown-wrapper #hours:after {
-      content: "H"; }
-    #countdown-wrapper #minutes:after {
-      content: "M"; }
-    #countdown-wrapper #seconds:after {
-      content: "S"; }
-    #countdown-wrapper #register-btn {
-      margin-top: -1rem; } }
+        opacity: .6;
+      }
+      
+    }
+    #days {
+      &:after {
+      content: "D";
+      }
+    }
+    #hours {
+      &:after {
+      content: "H";
+      }
+    }
+    #minutes {
+      &:after {
+      content: "M";
+      }
+    }
+    #seconds {
+      &:after {
+      content: "S";
+      }
+    }
+    #register-btn {
+      margin-top: -1rem;
+    }
+  }
+  */ }
 
 #moon-container {
   -webkit-filter: drop-shadow(0 0 4vw rgba(237, 203, 225, 0.9));
@@ -1868,7 +1883,9 @@ nav {
   z-index: -9999;
   background-image: url("../images/home/bg.png");
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  -webkit-clip-path: circle(25vh at center 50vh);
+          clip-path: circle(25vh at center 50vh); }
 
 #city {
   z-index: 99;

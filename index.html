@@ -45,7 +45,7 @@ permalink: /
   </div>
 
   <div id="countdown">
-    <div id="countdown-wrapper">
+    <div id="countdown-wrapper"><!--
       <span id="days">00</span><span class="colon">:</span
       ><span id="hours">00</span><span class="colon">:</span
       ><span id="minutes">00</span><span class="colon">:</span
@@ -58,6 +58,9 @@ permalink: /
           href="https://docs.google.com/forms/d/e/1FAIpQLSc3-4vuXJDaWOn6qweTfE7TH6V3RG9LlaA7raezFF_PWRKrgw/viewform?usp=sf_link"
           >Register Now</a
         >
+      </div>-->
+      <div>
+          Thank you for journeying beyond the Horizon with us. Stay up to date with us at <a href="asce.ucsd.edu" target="_blank">asce.ucsd.edu</a>
       </div>
     </div>
   </div>
@@ -79,17 +82,17 @@ permalink: /
 <section id="registration">
   <div class="container content-block">
     <h1 class="mb-2">Horizon 2020</h1>
-    <h2 class="mb-2">
+    <h2>
       January 24th 2020<br />
       7PM – 11PM<br />
       RIMAC Arena
     </h2>
-
+<!--
     <p>
         Registration is now closed! <br>
         ONLY STUDENTS WHO COMPLETE THE REGISTRATION MAY ATTEND THE FESTIVAL. <br>
         Don't forget to bring your physical student ID's. If you have additional questions, please email <a href="mailto:avpconcerts@ucsd.edu">avpconcerts@ucsd.edu</a>.
-    </p>
+    </p> -->
     <p class="hide">
       <a
         class="btn"
@@ -219,12 +222,13 @@ permalink: /
 </script>
 
 <script>
-  $(document).ready(function() {
-    // $("#moon").fadeIn("slow");
-    //$("#moon-container").fadeTo(2000, 1);
-    //$("#countdown").fadeTo(2000, 1);
-  });
+  setTimeout(function() {
+    $("#moon-container").fadeTo(2000, 1);
+  }, 1000);
+</script>
 
+<script>
+  /*
   var countDownDate = new Date("Jan 24, 2020 20:00:00").getTime();
   //var countDownDate = new Date("Nov 5, 2019 17:00:00").getTime();
   var startDate = new Date("Jan 6, 2020 12:00:00").getTime();
@@ -249,9 +253,7 @@ permalink: /
     // percent completed
     var progress = 1 - SEC_LEFT / START_SEC;
     var offset = progress * DISTANCE;
-
     var POS = START_POS + offset;
-    // console.log(POS);
 
     $("#moon").css("clip-path", "circle(27vh at center " + POS + "vh)");
     $("#moon-container").fadeTo(1500, 1);
@@ -290,17 +292,13 @@ permalink: /
       document.getElementById("hours").innerHTML = "00";
       document.getElementById("minutes").innerHTML = "00";
       document.getElementById("seconds").innerHTML = "00";
-      //return;
     }
 
-    var fadetime = 500;
-    if ($(window).width() > 1000) {
-    } else {
-    }
     setTimeout(function() {
-      $("#countdown").fadeTo(4500, 1);
+     $("#countdown").fadeTo(4500, 1);
     }, 500);
   }, 500);
+  */
 </script>
 
 <script>

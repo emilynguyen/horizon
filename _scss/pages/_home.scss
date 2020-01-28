@@ -61,7 +61,7 @@
 }
 
 #countdown {
-  opacity: 0;
+  //opacity: 0;
   z-index: 9999;
   top: 0;
   left: 0;
@@ -70,22 +70,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Futura", sans-serif;
+  font-family: "Futura LT", sans-serif;
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.3vw;
+ // letter-spacing: 0.3vw;
   text-shadow: 0 0 2vw $glow;
   user-select: none;
   text-align: center;
-  line-height: 60%;
-  font-size: 9vw;
+ // line-height: 60%;
+  //font-size: 9vw;
+  font-size: 3vw;
+  line-height: 130%;
   span {
     margin: 0 1.5vw 0 1.5vw;
   }
   @include grid-media-query(portable) {
-    line-height: 100%;
+   // line-height: 100%;
     text-shadow: 0 0 5vw $glow;
    // opacity: 1;
+   font-size: 3.5rem;
   }
   @include grid-media-query(palm) {
     line-height: 130%;
@@ -95,6 +98,9 @@
 $label-margin: 3vh;
 
 #countdown-wrapper {
+  max-width: 80rem;
+  padding: 10vw;
+  /*
   @include grid-media-query(portable) {
     display: flex;
     flex-direction: column;
@@ -149,7 +155,7 @@ $label-margin: 3vh;
       margin-top: -1rem;
     }
   }
-  
+  */
 }
 
 #moon-container {
@@ -177,6 +183,7 @@ $label-margin: 3vh;
   background-position: center center;
   background-size: cover;
   //box-shadow: 0 0 5rem black;
+  clip-path: circle(25vh at center 50vh);
   
 }
 
